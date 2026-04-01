@@ -1,0 +1,22 @@
+Copyright © 2025 dontouchgrass <- (Github® username)
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND.
+
+BracketsGF™ is a free, minimal game development framework for 32bit and 64bit
+Windows® applications. 
+
+DISCLAIMER: The creator is not responsible from any use of this framework whatsoever. 
+This framework is for the sole purpose of making game development with the Windows® API 
+easier and is not intended to be used in illegal activities.
+
+Licensing: Terms and conditions:
+BracketsGF™ is freeware as long as you follow the terms and conditions below:
+    1. This framework is not used for the intent of violating third-party license 
+        agreements.
+    2. You can claim ownership of your version of BracketsGF™ as long as BracketsGF™ 
+        is not bundled with software that will violate third-party license 
+        agreements.
+
+Please find the creator on Github® with the username dontouchgrass if you want to 
+contact the creator of BracketsGF™ about any possible issues or updates that should be 
+added.

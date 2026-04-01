@@ -1,0 +1,3 @@
+BracketsGF™ version 1:
+
+Window titles don't show.

@@ -1,0 +1,297 @@
+\\\\ BracketsGF™ documentation \\\\
+
+
+Hi so welcome to some boring C++ jargon, so please enjoy a 300 line 
+documentation text file.
+
+Implementations are at the bottom of the file and I highly recommend to go to the offical
+Windows® API documentation: https://learn.microsoft.com/en-us/windows/win32/api/
+
+
+
+\\\ rectangles.hpp \\\
+
+
+
+@int fill_rectangle(HDC handle_to_device_context, const rectangle& rectangle)
+
+$description {fills in a rectangle}
+
+$parameter {handle_to_device_context} handle to the device context
+$parameter{rectangle} the rectangle to fill
+
+$returns 0
+
+
+
+@inline int update_brush(rectangle& rectangle)
+
+$description {Updates the brush object and handles it's memory}
+
+$parameter {rectangle} the rectangle with the brush and color
+
+$returns 0
+
+
+
+@int update_rectangle(rectangle &rectangle)
+
+$description {updates the rectangle}
+
+$parameter {rectangle} the rectangle to update
+
+$returns 0
+
+
+
+@int draw_rectangles(HDC handle_device_context, std::vector<rectangle>* rectangles)
+
+$description {draws rectangles on a window}
+
+$parameter {handle_device_context} a handle to the device context
+$parameter {rectangles} the rectangles to draw
+
+$returns 0
+
+
+
+/// window_procedure.hpp ///
+
+
+
+@inline int case_window_created(
+    HWND handle_to_window,
+    LPARAM long_parameter,
+    window_procedure_data &window_procedure_data
+)
+
+$description {handles when a window is created}
+
+$parameter {handle_to_window} handle to the window
+$parameter {long_parameter} extra information within the window
+$parameter {window_procedure_data} data required for the window procedure
+
+$returns 0
+
+
+
+@inline int case_window_destroyed(window_procedure_data &window_procedure_data)
+
+$description {handles when a window is destroyed}
+
+$parameter {window_procedure_data} data required for the window procedure
+
+$returns 0
+
+
+
+@inline int case_window_resize(
+    HWND handle_to_window,
+    LPARAM long_parameter,
+    window_procedure_data &window_procedure_data
+)
+
+$description {handles when a window is resized}
+
+$parameter {handle_to_window} handle to the window
+$parameter {long_parameter} extra information within the window
+$parameter {window_procedure_data} data required for the window procedure
+
+$returns 0
+
+
+
+@inline int case_paint(HWND handle_to_window)
+
+$description {handles when a window needs to paint something on the screen (also clears screen)}
+
+$parameter {handle_to_window} handle to the window
+
+$returns 0
+
+
+
+@int case_key_down(WPARAM word_parameter, const keybind keybinds)
+
+$description {handles when a key is pressed}
+
+$parameter {word_parameter} the keypress event<br>
+$parameter {keybinds} the keybinds provided to handle the keypress event
+
+$returns 0
+
+
+
+@inline LRESULT CALLBACK window_procedure(
+    HWND handle_to_window,
+    UINT message,
+    WPARAM word_parameter,
+    LPARAM long_parameter
+)
+
+$description {the main function for the window procedure}
+
+$parameter {handle_to_window} handle to the window
+$parameter {message} message to the window procedure
+$parameter {word_parameter} extra information packed within the window
+$parameter {long_parameter} extra information packed within the window
+
+$returns 0
+
+
+
+/// windows.hpp ///
+
+
+@bool register_window_class(HINSTANCE handle_to_instance, LPCWSTR class_name)
+
+$description {registers a window class}
+
+$parameter {handle_to_instance} handle to the instance of a running program
+$parameter {class_name} the class name to be registered
+
+$returns {if the register was successful}
+
+
+
+@bool create_window(HINSTANCE handle_instance, window& window)
+
+$description {creates a window}
+
+$parameter {handle_instance} handle to the instance of a running program
+
+$returns {the status of the window creation process}
+
+
+
+@int add_rectangle(rectangle* rectangle, window &window)
+
+$description {adds rectangle to rectangles}
+
+$parameter {rectangle} the rectangle to be added
+
+$returns 0
+
+
+
+@int show_window(int show_command, HWND handle_window)
+
+$description {displays window}
+
+$parameter {show_command} a command to show window
+$parameter {handle_window} a handle to the window
+
+$returns 0
+
+
+@int run_message_loop()
+
+$description {runs the message loop}
+
+$returns the status of the message
+
+
+
+@window* get_window(HWND handle_to_window)
+
+$description {gets the window from an LPVOID}
+
+$returns the window
+
+
+
+@int store_window(HWND handle_to_window, LPARAM long_parameter)
+
+$description {stores the long_parameter in the user data of the handle_to_window}
+
+$parameter {handle_window} a handle to the window
+$parameter {long_parameter} the information to be stored
+
+$returns 0
+
+
+
+/// Usage ///
+
+
+
+// so to start, include BracketsGF/brackets.hpp:
+
+
+#pragma comment(lib, "user32.lib")
+#pragma comment(lib, "gdi32.lib")
+#pragma comment(lib, "kernel32.lib")
+
+#include "BracketsGF/brackets.hpp"
+
+
+// then you initialize a WinMain function:
+
+
+int WINAPI WinMain(
+    HINSTANCE handle_to_instance, 
+    HINSTANCE handle_to_previous, 
+    LPSTR long_pointer_to_command, 
+    int show_window_command
+) { // ...
+
+
+// then you initialize your window and the following parameters:
+
+
+WINDOW window = {};
+window.window_title = L"window title";
+window.window_class = L"window class";
+window.rectangles = std::make_unique<std::vector<RECTANGLE>>(); // required
+
+window.window_procedure_data.previous_window_width = 800; // required base width
+window.window_procedure_data.previous_window_height = 600; // required base height
+
+
+// then you initialize your window class:
+
+
+WNDCLASSW window_class = {};
+window_class.lpfnWndProc = window_procedure; // window_procedure is a function
+window_class.hInstance = handle_to_instance;
+window_class.lpszClassName = window.window_class;
+window_class.hCursor = LoadCursorW(NULL, (LPCWSTR)IDC_ARROW);
+RegisterClassW(&window_class);
+
+
+// then you need to initialize your window.handle_to_window:
+
+
+window.handle_to_window = CreateWindowExW(
+    0, window.window_class, window.window_title,
+    WS_OVERLAPPEDWINDOW | WS_VISIBLE, 
+    CW_USEDEFAULT, CW_USEDEFAULT, 800, 600, 
+    nullptr, nullptr, handle_to_instance, &window
+);
+
+
+// then you can initialize your rectangles like this:
+
+
+RECTANGLE green_square = {};
+green_square.base_x = 100.0;
+green_square.base_y = 100.0;
+green_square.base_width = 150;
+green_square.base_height = 150;
+
+green_square.x = green_square.base_x;
+green_square.y = green_square.base_y;
+green_square.width = green_square.base_width;
+green_square.height = green_square.base_height;
+
+green_square.color = RGB(0, 255, 0);
+
+update_rectangle(green_square); // sync
+add_rectangle(&green_square, window);
+
+
+// then finally run the message loop:
+
+
+    return run_message_loop();
+}

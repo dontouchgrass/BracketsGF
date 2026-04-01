@@ -1,0 +1,6 @@
+for BracketsGF™ version 2:
+
+I will add some constructors and functions to do more of the initialization and 
+boilerplate necessary for BracketsGF™ version 1.
+
+I will also change from double quotes to angle brackets in the inclusion.
