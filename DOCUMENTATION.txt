@@ -4,8 +4,8 @@
 Hi so welcome to some boring C++ jargon, so please enjoy a 300 line 
 documentation text file.
 
-Implementations are at the bottom of the file and I highly recommend to go to the offical
-Windows® API documentation: https://learn.microsoft.com/en-us/windows/win32/api/
+Sample implementations for BracketsGF are at the bottom of the file and I highly recommend to go to the offical
+Windows® API documentation: https://learn.microsoft.com/en-us/windows/win32/api/ for more context.
 
 
 
