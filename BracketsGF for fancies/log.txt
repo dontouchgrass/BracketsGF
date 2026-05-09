@@ -1,0 +1,12 @@
+TEST_TYPE   -=-  int __cdecl WinMain(struct HINSTANCE__ *,struct HINSTANCE__ *,char *,int)   -=-  main.cpp   -=-  2026-05-05 22:31:13.8821858
+TEST_TYPE   -=-  int __cdecl WinMain(struct HINSTANCE__ *,struct HINSTANCE__ *,char *,int)   -=-  main.cpp   -=-  2026-05-05 22:31:24.2311105
+TEST_TYPE   -=-  int __cdecl WinMain(struct HINSTANCE__ *,struct HINSTANCE__ *,char *,int)   -=-  main.cpp   -=-  2026-05-05 22:38:19.2500487
+TEST_TYPE   -=-  int __cdecl WinMain(struct HINSTANCE__ *,struct HINSTANCE__ *,char *,int)   -=-  main.cpp   -=-  2026-05-05 22:51:40.6408980
+TEST_TYPE   -=-  int __cdecl WinMain(struct HINSTANCE__ *,struct HINSTANCE__ *,char *,int)   -=-  main.cpp   -=-  2026-05-05 23:11:29.3739940
+TEST_TYPE   -=-  int __cdecl WinMain(struct HINSTANCE__ *,struct HINSTANCE__ *,char *,int)   -=-  main.cpp   -=-  2026-05-05 23:12:14.9853029
+TEST_TYPE   -=-  int __cdecl WinMain(struct HINSTANCE__ *,struct HINSTANCE__ *,char *,int)   -=-  main.cpp   -=-  2026-05-05 23:13:46.0135376
+TEST_TYPE   -=-  int __cdecl WinMain(struct HINSTANCE__ *,struct HINSTANCE__ *,char *,int)   -=-  main.cpp   -=-  2026-05-05 23:14:30.7077780
+TEST_TYPE   -=-  int __cdecl WinMain(struct HINSTANCE__ *,struct HINSTANCE__ *,char *,int)   -=-  main.cpp   -=-  2026-05-05 23:15:00.9662792
+TEST_TYPE   -=-  int __cdecl WinMain(struct HINSTANCE__ *,struct HINSTANCE__ *,char *,int)   -=-  main.cpp   -=-  2026-05-05 23:15:03.4757721
+TEST_TYPE   -=-  int __cdecl WinMain(struct HINSTANCE__ *,struct HINSTANCE__ *,char *,int)   -=-  main.cpp   -=-  2026-05-06 22:44:34.6688507
+TEST_TYPE   -=-  int __cdecl WinMain(struct HINSTANCE__ *,struct HINSTANCE__ *,char *,int)   -=-  main.cpp   -=-  2026-05-06 22:46:12.5329163
